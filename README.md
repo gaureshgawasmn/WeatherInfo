@@ -41,11 +41,12 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/gaureshgawasmn/WeatherInfo
+   git clone <repository_url>
     ```
 2. Import the project into your IDE as Gradle project.
 3. Create gradle task `bootRun` to run the application. Alternatively, you can run the application from the IDE.
 4. While creating the bootrun task pass the parameters --args='--service.rapidapi.apiKey=`<your_api_key>`
 5. `gradle bootRun --args='--service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7'`
+
 
 Note: The Key mentioned above and in application.yml file is a sample key. Please use your own key.

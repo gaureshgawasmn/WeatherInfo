@@ -1,0 +1,10 @@
+server:
+  port: 8081
+service:
+  rapidapi:
+    url:
+      https://forecast9.p.rapidapi.com
+    apiKey:
+      nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7
+    host:
+      forecast9.p.rapidapi.com
