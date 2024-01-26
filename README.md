@@ -47,7 +47,7 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/gaureshgawasmn/WeatherInfo
     ```
 2. Import the project into your IDE as Gradle project.
 3. Create gradle task `bootRun` to run the application. Alternatively, you can run the application from the IDE.
