@@ -56,3 +56,7 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 
 Note: The Key mentioned above and in application.yml file is a sample key. Please use your own key.
+
+### Version Information
+1. Java 17 is required to run the application.
+2. Gradle 8.5 is required to build the application.
