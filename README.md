@@ -22,6 +22,9 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 **Endpoint**: `/weather/summary/{locationName}`
 
 - **Method**: GET
+- **Headers**:
+    - `X-Client-ID` : `your-client_id`
+    - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
     - `locationName`: Name of the location for which to retrieve the forecast summary.
 - **Response**:
@@ -32,6 +35,9 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 **Endpoint**: `/weather/hourly/{locationName}`
 
 - **Method**: GET
+- **Headers**:
+    - `X-Client-ID` : `your-client_id`
+    - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
     - `locationName`: Name of the location for which to retrieve the hourly forecast.
 - **Response**:

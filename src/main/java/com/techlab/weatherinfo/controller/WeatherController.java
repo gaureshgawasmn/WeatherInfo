@@ -3,6 +3,8 @@ package com.techlab.weatherinfo.controller;
 import com.techlab.weatherinfo.service.WeatherService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterIn;
+import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class WeatherController {
     @Autowired
     private WeatherService weatherService;
 
+    @Parameter(in = ParameterIn.HEADER, name = "X-Client-ID", description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
+    @Parameter(in = ParameterIn.HEADER, name = "X-Client-Secret", description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
     @Operation(description = "Get forecast summary by location name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved forecast summary"),
@@ -38,6 +42,8 @@ public class WeatherController {
         return weatherService.getForecastSummaryByLocationName(locationName);
     }
 
+    @Parameter(in = ParameterIn.HEADER, name = "X-Client-ID", description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
+    @Parameter(in = ParameterIn.HEADER, name = "X-Client-Secret", description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
     @Operation(description = "Get hourly forecast by location name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved hourly forecast"),
