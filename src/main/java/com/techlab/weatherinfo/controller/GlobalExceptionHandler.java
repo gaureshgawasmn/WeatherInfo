@@ -19,7 +19,7 @@ public class GlobalExceptionHandler {
     Logger logger = LoggerFactory.getLogger(this.getClass().getName());
 
     @ExceptionHandler(HttpClientErrorException.Unauthorized.class)
-    public ResponseEntity<String> handleUnauthorizedException(HttpClientErrorException.Unauthorized e) {
+    public ResponseEntity<Object> handleUnauthorizedException(HttpClientErrorException.Unauthorized e) {
         logger.error("Unauthorized request trial ", e);
         return e.getStatusCode().equals(HttpStatus.UNAUTHORIZED) ?
                 ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getLocalizedMessage()) :
@@ -27,7 +27,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(HttpClientErrorException.NotFound.class)
-    public ResponseEntity<String> handleNotFoundException(HttpClientErrorException.NotFound e) {
+    public ResponseEntity<Object> handleNotFoundException(HttpClientErrorException.NotFound e) {
         logger.error("Resource not found for request", e);
         return e.getStatusCode().equals(HttpStatus.NOT_FOUND) ?
                 ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getLocalizedMessage()) :

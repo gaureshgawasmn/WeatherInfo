@@ -6,6 +6,9 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_ID;
+import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_SECRET;
+
 /**
  * The Class AuthenticationFilter.
  * <p>
@@ -17,8 +20,8 @@ public class AuthenticationFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        String clientId = request.getHeader("X-Client-ID");
-        String clientSecret = request.getHeader("X-Client-Secret");
+        String clientId = request.getHeader(X_CLIENT_ID);
+        String clientSecret = request.getHeader(X_CLIENT_SECRET);
 
         if (isValidCredentials(clientId, clientSecret)) {
             chain.doFilter(request, response);

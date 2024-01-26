@@ -16,6 +16,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_ID;
+import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_SECRET;
+
 /**
  * The class WeatherController
  * <p>
@@ -28,8 +31,8 @@ public class WeatherController {
     @Autowired
     private WeatherService weatherService;
 
-    @Parameter(in = ParameterIn.HEADER, name = "X-Client-ID", description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
-    @Parameter(in = ParameterIn.HEADER, name = "X-Client-Secret", description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
+    @Parameter(in = ParameterIn.HEADER, name = X_CLIENT_ID, description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
+    @Parameter(in = ParameterIn.HEADER, name = X_CLIENT_SECRET, description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
     @Operation(description = "Get forecast summary by location name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved forecast summary",
@@ -46,8 +49,8 @@ public class WeatherController {
         return weatherService.getForecastSummaryByLocationName(locationName);
     }
 
-    @Parameter(in = ParameterIn.HEADER, name = "X-Client-ID", description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
-    @Parameter(in = ParameterIn.HEADER, name = "X-Client-Secret", description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
+    @Parameter(in = ParameterIn.HEADER, name = X_CLIENT_ID, description = "Client ID", required = true, schema = @Schema(type = "string"), example = "CLIENT-295")
+    @Parameter(in = ParameterIn.HEADER, name = X_CLIENT_SECRET, description = "Client Secret", required = true, schema = @Schema(type = "string"), example = "WAPI-295-dhUfvCnM6X2RbH7")
     @Operation(description = "Get hourly forecast by location name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully retrieved hourly forecast",
