@@ -6,8 +6,8 @@ This Spring Boot application provides RESTful APIs to retrieve weather forecast 
 
 The application integrates with a weather API to fetch weather forecasts for various locations. It exposes two endpoints:
 
-1. `/weather/summary/{locationName}`: Retrieves the forecast summary for a specific location. This uses 'RapidApiGetForecastSummaryByLocationName' API from the weather API.
-2. `/weather/hourly/{locationName}`: Retrieves the hourly forecast for a specific location. This uses 'RapidApiGetHourlyForecastByLocationName' API from the weather API.
+1. `/weather/summary/{locationName}`: Retrieves the forecast summary for a specific location. This uses the 'RapidApiGetForecastSummaryByLocationName' API from the weather API.
+2. `/weather/hourly/{locationName}`: Retrieves the hourly forecast for a specific location. This uses the 'RapidApiGetHourlyForecastByLocationName' API from the weather API.
 
 ## API Documentation
 
@@ -26,7 +26,7 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
   - `X-Client-ID` : `your-client_id`
   - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
-  - `locationName`: Name of the location for which to retrieve the forecast summary.
+  - `locationName`: The location to retrieve the forecast summary.
 - **Response**:
   - Returns the forecast summary in JSON format.
 
@@ -39,7 +39,7 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
   - `X-Client-ID` : `your-client_id`
   - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
-  - `locationName`: Name of the location for which to retrieve the hourly forecast.
+  - `locationName`: The location to retrieve the hourly forecast.
 - **Response**:
   - Returns the hourly forecast in JSON format.
 
@@ -49,9 +49,9 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
    ```bash
    git clone https://github.com/gaureshgawasmn/WeatherInfo
     ```
-2. Import the project into your IDE as Gradle project.
-3. Create gradle task `bootRun` to run the application. Alternatively, you can run the application from the IDE.
-4. While creating the bootrun task pass the parameters --args='--service.rapidapi.apiKey=`<your_api_key>`
+2. Import the project into your IDE as a Gradle project. (It should automatically build your project if not then use the `gradle build` command from the directory where build.gradle is present)
+3. Create a gradle task `bootRun` to run the application. Alternatively, you can run the application from the IDE.
+4. While running the bootrun task pass the parameters --args='--service.rapidapi.apiKey=`<your_api_key>`
 5. `gradle bootRun --args='--service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7'`
 
 
