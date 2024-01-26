@@ -54,6 +54,21 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 4. While running the bootrun task pass the parameters --args='--service.rapidapi.apiKey=`<your_api_key>`
 5. `gradle bootRun --args='--service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7'`
 
+## To run the distributed application
+
+1. Navigate to the directory `./Distribution` where the jar file is present.
+2. Run the following command to run the application.
+   ```bash
+   java -jar WeatherInfo-0.0.1-SNAPSHOT.jar --service.rapidapi.apiKey=`<your_api_key>`
+   ```
+   example:
+    ```bash 
+   java -jar WeatherInfo-0.0.1-SNAPSHOT.jar --service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7
+   ```
+   if different java version is set then use following command to locate the java version and run the application.
+   ```bash
+   C:\Users\<UserName>\.jdks\jdk-17.0.9\bin\java -jar WeatherInfo-0.0.1-SNAPSHOT.jar --service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7
+   ```
 
 Note: The Key mentioned above and in application.yml file is a sample key. Please use your own key.
 
