@@ -23,12 +23,12 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 - **Method**: GET
 - **Headers**:
-    - `X-Client-ID` : `your-client_id`
-    - `X-Client-Secret` : `your-client_secret`
+  - `X-Client-ID` : `your-client_id`
+  - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
-    - `locationName`: Name of the location for which to retrieve the forecast summary.
+  - `locationName`: Name of the location for which to retrieve the forecast summary.
 - **Response**:
-    - Returns the forecast summary.
+  - Returns the forecast summary in JSON format.
 
 ### Get Hourly Forecast by Location Name
 
@@ -36,12 +36,12 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 - **Method**: GET
 - **Headers**:
-    - `X-Client-ID` : `your-client_id`
-    - `X-Client-Secret` : `your-client_secret`
+  - `X-Client-ID` : `your-client_id`
+  - `X-Client-Secret` : `your-client_secret`
 - **Parameters**:
-    - `locationName`: Name of the location for which to retrieve the hourly forecast.
+  - `locationName`: Name of the location for which to retrieve the hourly forecast.
 - **Response**:
-    - Returns the hourly forecast.
+  - Returns the hourly forecast in JSON format.
 
 ## Installation and Setup
 

@@ -29,14 +29,14 @@ public class WeatherService {
      * @param locationName Name of the location for forecast summary
      * @return
      */
-    public ResponseEntity<byte[]> getForecastSummaryByLocationName(String locationName) {
+    public ResponseEntity<Object> getForecastSummaryByLocationName(String locationName) {
         String url = weatherAPIConfig.getUrl() + "/rapidapi/forecast/" + locationName + "/summary/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-RapidAPI-Key", weatherAPIConfig.getApiKey());
         headers.set("X-RapidAPI-Host", weatherAPIConfig.getHost());
         headers.setContentType(MediaType.APPLICATION_JSON);
         RequestEntity<?> requestEntity = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
-        return restTemplate.exchange(requestEntity, byte[].class);
+        return restTemplate.exchange(requestEntity, Object.class);
     }
 
     /**
@@ -45,13 +45,13 @@ public class WeatherService {
      * @param locationName Name of the location for hourly forecast
      * @return
      */
-    public ResponseEntity<byte[]> getHourlyForecastByLocationName(String locationName) {
+    public ResponseEntity<Object> getHourlyForecastByLocationName(String locationName) {
         String url = weatherAPIConfig.getUrl() + "/rapidapi/forecast/" + locationName + "/hourly/";
         HttpHeaders headers = new HttpHeaders();
         headers.set("X-RapidAPI-Key", weatherAPIConfig.getApiKey());
         headers.set("X-RapidAPI-Host", weatherAPIConfig.getHost());
         headers.setContentType(MediaType.APPLICATION_JSON);
         RequestEntity<?> requestEntity = new RequestEntity<>(headers, HttpMethod.GET, URI.create(url));
-        return restTemplate.exchange(requestEntity, byte[].class);
+        return restTemplate.exchange(requestEntity, Object.class);
     }
 }

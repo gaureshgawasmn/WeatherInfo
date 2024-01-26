@@ -36,7 +36,7 @@ public class WeatherController {
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @GetMapping("/summary/{locationName}")
-    public ResponseEntity<byte[]> getForecastSummaryByLocationName(
+    public ResponseEntity<Object> getForecastSummaryByLocationName(
             @Parameter(description = "Name of the location for forecast summary", example = "Berlin")
             @PathVariable String locationName) {
         return weatherService.getForecastSummaryByLocationName(locationName);
@@ -52,7 +52,7 @@ public class WeatherController {
             @ApiResponse(responseCode = "401", description = "Unauthorized")
     })
     @GetMapping("/hourly/{locationName}")
-    public ResponseEntity<byte[]> getHourlyForecastByLocationName(
+    public ResponseEntity<Object> getHourlyForecastByLocationName(
             @Parameter(description = "Name of the location for hourly forecast", example = "Berlin")
             @PathVariable String locationName) {
         return weatherService.getHourlyForecastByLocationName(locationName);
