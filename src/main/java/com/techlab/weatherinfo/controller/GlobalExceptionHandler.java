@@ -34,6 +34,14 @@ public class GlobalExceptionHandler {
                 ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
     }
 
+    @ExceptionHandler(HttpClientErrorException.Forbidden.class)
+    public ResponseEntity<Object> handleNotFoundException(HttpClientErrorException.Forbidden e) {
+        logger.error("Forbidden request", e);
+        return e.getStatusCode().equals(HttpStatus.FORBIDDEN) ?
+                ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.getLocalizedMessage()) :
+                ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal Server Error");
+    }
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> handleGenericException(Exception e) {
         logger.error("Exception occurred during the request", e);
