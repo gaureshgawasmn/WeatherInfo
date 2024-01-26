@@ -1,6 +1,7 @@
 package com.techlab.weatherinfo.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
@@ -9,6 +10,7 @@ import javax.net.ssl.X509TrustManager;
 import java.security.cert.X509Certificate;
 
 @Configuration
+@Profile("dev")
 public class SSLConfiguration {
 
     public SSLConfiguration() {
@@ -34,4 +36,3 @@ public class SSLConfiguration {
         }
     }
 }
-
