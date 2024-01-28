@@ -75,3 +75,14 @@ Note: The Key mentioned above and in application.yml file is a sample key. Pleas
 ### Version Information
 1. Java 17 is required to run the application.
 2. Gradle 8.5 is required to build the application.
+
+### Docker Image Support
+1. To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
+2. To create the docker image run the following command from the directory where build.gradle is present.
+   ```bash
+   gradle dockerBuildImage
+   ```
+3. To run the docker image run the following command.
+   ```bash
+   docker run -e "service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7" -p 8082:8081 docker.io/gaureshgawasmn/techlab-weather-info-service:0.0.1-SNAPSHOT
+    ```

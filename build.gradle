@@ -23,7 +23,7 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
-	//implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.json:json:20231013'
 	// swagger dependency for api documentation
@@ -36,4 +36,17 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// added below for docker image
+tasks.named('bootBuildImage') {
+	builder = 'paketobuildpacks/builder-jammy-base:latest'
+}
+
+ext{
+	set('customImageName', 'weather-info-service')
+}
+
+bootBuildImage {
+	imageName = "gaureshgawasmn/techlab-${customImageName}:"+ project.version // Replace with your desired image name and tag
 }
