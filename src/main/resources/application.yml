@@ -3,6 +3,10 @@ server:
 spring:
   profiles:
     active: dev
+  security:
+    user:
+      name: admin
+      password: admin
 service:
   rapidapi:
     url:
