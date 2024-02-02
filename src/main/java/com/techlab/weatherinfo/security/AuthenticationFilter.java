@@ -6,8 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_ID;
-import static com.techlab.weatherinfo.constants.ApplicationConstants.X_CLIENT_SECRET;
+import static com.techlab.weatherinfo.constants.ApplicationConstants.*;
 
 /**
  * The Class AuthenticationFilter.
@@ -40,6 +39,7 @@ public class AuthenticationFilter implements Filter {
     }
 
     private boolean isValidCredentials(String clientId, String clientSecret) {
-        return clientId != null && clientSecret != null;
+        // Added below hardcoded client-id and client-secrete for validation
+        return X_CLIENT_ID_VALUE.equals(clientId) && X_CLIENT_SECRET_VALUE.equals(clientSecret);
     }
 }

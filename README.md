@@ -17,31 +17,44 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 
 ## Endpoints
 
-### Get Forecast Summary by Location Name
+### 1. Get token of authentication
+
+**Endpoint**: `/token`
+
+- **Method**: POST
+- **Body** :
+    - `username` : User
+    - `password` : User@123
+- **Response**:
+    - Returns the auth token for further use.
+
+### 2. Get Forecast Summary by Location Name
 
 **Endpoint**: `/weather/summary/{locationName}`
 
 - **Method**: GET
 - **Headers**:
-  - `X-Client-ID` : `your-client_id`
-  - `X-Client-Secret` : `your-client_secret`
+    - `X-Client-ID` : `your-client_id`
+    - `X-Client-Secret` : `your-client_secret`
+    - `Authorization` : `<Auth token from API>`
 - **Parameters**:
-  - `locationName`: The location to retrieve the forecast summary.
+    - `locationName`: The location to retrieve the forecast summary.
 - **Response**:
-  - Returns the forecast summary in JSON format.
+    - Returns the forecast summary in JSON format.
 
-### Get Hourly Forecast by Location Name
+### 3. Get Hourly Forecast by Location Name
 
 **Endpoint**: `/weather/hourly/{locationName}`
 
 - **Method**: GET
 - **Headers**:
-  - `X-Client-ID` : `your-client_id`
-  - `X-Client-Secret` : `your-client_secret`
+    - `X-Client-ID` : `your-client_id`
+    - `X-Client-Secret` : `your-client_secret`
+    - `Authorization` : `<Auth token from API>`
 - **Parameters**:
-  - `locationName`: The location to retrieve the hourly forecast.
+    - `locationName`: The location to retrieve the hourly forecast.
 - **Response**:
-  - Returns the hourly forecast in JSON format.
+    - Returns the hourly forecast in JSON format.
 
 ## Installation and Setup
 
@@ -73,10 +86,12 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
 Note: The Key mentioned above and in application.yml file is a sample key. Please use your own key.
 
 ### Version Information
+
 1. Java 17 is required to run the application.
 2. Gradle 8.5 is required to build the application.
 
 ### Docker Image Support
+
 1. To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
 2. To create the docker image run the following command from the directory where build.gradle is present.
    ```bash

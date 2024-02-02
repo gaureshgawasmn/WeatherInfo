@@ -3,6 +3,8 @@ package com.techlab.weatherinfo.security;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * The Class SecurityConfig.
@@ -18,5 +20,10 @@ public class SecurityConfig {
         registrationBean.setFilter(authenticationFilter);
         registrationBean.addUrlPatterns("/weather/*"); // Specify URL patterns that require authentication
         return registrationBean;
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

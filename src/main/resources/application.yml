@@ -3,10 +3,13 @@ server:
 spring:
   profiles:
     active: dev
-  security:
-    user:
-      name: admin
-      password: admin
+#  security:
+#    user:
+#      name: admin
+#      password: admin
+  output:
+    ansi:
+      enabled: always
 service:
   rapidapi:
     url:
@@ -15,3 +18,17 @@ service:
       nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7
     host:
       forecast9.p.rapidapi.com
+logging:
+  file:
+    name: logs/app.log
+    path: logs
+    max-size: 10MB
+    max-history: 10
+    max-days: 10
+  level:
+    org:
+      springframework: DEBUG
+jwt:
+  secret:
+    key: 4a73e5f385b9c5e1546f1a87a85dfc94d8fa1c8a60721c7c180aebedd6a1eaf184f4f0e58606f1a12910ae4dcf6d7e9ec669425c031e6b1c893f5d30b7f92d6
+    expiration: 600000 # 10 min
