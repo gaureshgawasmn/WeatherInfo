@@ -1,13 +1,17 @@
 # Weather Forecast Service
 
-This Spring Boot application provides RESTful APIs to retrieve weather forecast summaries and hourly forecasts for different locations.
+This Spring Boot application provides RESTful APIs to retrieve weather forecast summaries and hourly forecasts for
+different locations.
 
 ## Overview
 
-The application integrates with a weather API to fetch weather forecasts for various locations. It exposes two endpoints:
+The application integrates with a weather API to fetch weather forecasts for various locations. It exposes two
+endpoints:
 
-1. `/weather/summary/{locationName}`: Retrieves the forecast summary for a specific location. This uses the 'RapidApiGetForecastSummaryByLocationName' API from the weather API.
-2. `/weather/hourly/{locationName}`: Retrieves the hourly forecast for a specific location. This uses the 'RapidApiGetHourlyForecastByLocationName' API from the weather API.
+1. `/weather/summary/{locationName}`: Retrieves the forecast summary for a specific location. This uses the '
+   RapidApiGetForecastSummaryByLocationName' API from the weather API.
+2. `/weather/hourly/{locationName}`: Retrieves the hourly forecast for a specific location. This uses the '
+   RapidApiGetHourlyForecastByLocationName' API from the weather API.
 
 ## API Documentation
 
@@ -62,7 +66,8 @@ Swagger UI: `http://localhost:8081/swagger-ui/index.html`
    ```bash
    git clone https://github.com/gaureshgawasmn/WeatherInfo
     ```
-2. Import the project into your IDE as a Gradle project. (It should automatically build your project if not then use the `gradle build` command from the directory where build.gradle is present)
+2. Import the project into your IDE as a Gradle project. (It should automatically build your project if not then use
+   the `gradle build` command from the directory where build.gradle is present)
 3. Create a gradle task `bootRun` to run the application. Alternatively, you can run the application from the IDE.
 4. While running the bootrun task pass the parameters --args='--service.rapidapi.apiKey=`<your_api_key>`
 5. `gradle bootRun --args='--service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7'`
@@ -92,12 +97,26 @@ Note: The Key mentioned above and in application.yml file is a sample key. Pleas
 
 ### Docker Image Support
 
-1. To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
-2. To create the docker image run the following command from the directory where build.gradle is present.
-   ```bash
-   gradle dockerBuildImage
-   ```
-3. To run the docker image run the following command.
-   ```bash
-   docker run -e "service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7" -p 8082:8081 docker.io/gaureshgawasmn/techlab-weather-info-service:0.0.1-SNAPSHOT
-    ```
+1. Gradle task
+    - To create the docker images added the gradle task `dockerBuildImage` in build.gradle file.
+    - To create the docker image run the following command from the directory where build.gradle is present.
+      ```bash
+      gradle dockerBuildImage
+      ```
+    - To run the docker image run the following command.
+       ```bash
+       docker run -e "service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7" -p 8082:8081 docker.io/gaureshgawasmn/techlab-weather-info-service:0.0.1-SNAPSHOT
+        ```
+2. Using Dockerfile
+    - To create the image using docker file run the following command from the root directory
+       ```bash
+       docker build -t <customImageName> .
+       ```
+      example
+        ```bash
+       docker build -t gaureshgawasmn/techlab-weather-info-service .
+       ```
+    - To run the docker image run the following command.
+       ```bash
+       docker run -e "service.rapidapi.apiKey=nYBv1IwB5dLb7lz5wjnTfuIuG8LzrQhO1dhUfvCnM6X2RbH7" -p 8085:8081 docker.io/gaureshgawasmn/techlab-weather-info-service
+        ```
